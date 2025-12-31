@@ -1,11 +1,11 @@
-Real-Time Person Detection for Raspberry Pi
+** Real-Time Person Detection for Raspberry Pi 3B+
 
 Overview
-Ultra-low latency person detection system optimized for Raspberry Pi 3B+. Captures video from camera, runs inference with YOLO11, and streams results via web interface with minimal delay.
+person detection system optimized for Raspberry Pi 3B+. Captures video from camera, runs inference with YOLO11, and streams results via web interface with minimal delay.
 
 Hardware
 - Raspberry Pi 3B+
-- Raspberry Pi Camera Module v1.3
+- Raspberry Pi Camera Module  rev 1.3
 
 Software Stack
 - YOLO11 (Object Detection Model)
@@ -28,14 +28,10 @@ Installation
 2. Install dependencies
    pip3 install flask tflite-runtime opencv-python picamera numpy
 
-3. Place model file
-   mkdir -p models
-   cp yolo11n_float32.tflite models/
-
-4. Run the application
+3. Run the application
    python3 person_detection.py
 
-5. Access web interface
+4. Access web interface
    Open browser and navigate to http://<raspberry-pi-ip>:5000
 
 Configuration
@@ -48,7 +44,3 @@ Edit these values in person_detection.py to tune performance:
 Performance Notes
 Designed for minimal latency on resource-constrained hardware. Uses non-blocking queue operations, aggressive frame dropping, and frame skipping to achieve <100ms end-to-end latency.
 
-Files
-- person_detection.py: Main application
-- models/yolo11n_float32.tflite: YOLO11 nano model (TensorFlow Lite format)
-- models/coco_labels_person.txt: COCO class labels
